@@ -1,0 +1,13 @@
+body{
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+input:focus{
+  border: 1px solid #0d6efd !important;
+  outline: unset;
+}
+.items:focus {
+  box-shadow: 1px 1px 12px 2px #fff !important;
+  outline: none;
+}

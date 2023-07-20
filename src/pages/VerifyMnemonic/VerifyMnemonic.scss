@@ -1,0 +1,53 @@
+.verify-mnemonic-page {
+    background-color: #010006db;
+    min-height: calc(100vh - 2rem);
+    padding: 1.5rem 0.9rem;
+    padding-bottom: .5rem;
+    overflow: hidden;
+    color: #fff;
+    text-align: center;
+
+    .form {
+        margin-top: 2rem;
+        text-align: left;
+        padding: 1rem;
+        padding-right: 0;
+        display: grid;
+        grid-template-columns: auto auto;
+
+        .form-check {
+            display: block;
+            min-height: 1.5rem;
+            margin-bottom: 0.125rem;
+
+            label {
+                display: inline-block;
+                margin-left: 7px;
+            }
+
+            .form-check-input[type=radio] {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .navigation {
+        width: calc(100vw - 1.8rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // position: absolute;
+        // bottom: 5px;
+        margin-top: 10px;
+
+        button {
+            border: unset;
+            background-color: transparent;
+            background: transparent;
+            font-size: 1rem;
+            color: #0d6efd;
+            padding: .5rem;
+            border-radius: 10px;
+        }
+    }
+}

@@ -1,0 +1,82 @@
+.transactions-page{
+    background-color: #010006db;
+    min-height: calc(100vh - 2.5rem);
+    height: calc(100vh - 2.5rem);
+    padding: 1.5rem 0rem;
+    overflow: hidden;
+    color: #fff;
+    padding-top: 1rem;
+
+    .header{
+        background-color: rgb(37, 36, 36);
+        height: 35vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        pre{
+            font-weight: 500;
+            font-size: 1.4rem;
+        }
+
+        button{
+            font-size: 14px;
+            text-decoration: none;
+            position: fixed;
+            top: 19px;
+            left: 15px;
+            color: white;
+            background: transparent;
+            border: unset;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    }
+
+    .transactions-container{
+        background-color: rgb(37, 36, 36);
+        height: 65vh;
+        color: white;
+        overflow-y: scroll;
+        box-shadow: rgb(30, 24, 24) 0px 0px 10px;
+        
+
+        .transaction{
+            label{
+                font-size: 9px;
+                color: rgb(220, 222, 222);
+                padding: 6px 0px 0px 10px;
+                margin-bottom: 0.5rem;
+                display: inline-block;
+            }
+            .data{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background-color: rgb(13, 110, 253);
+                padding: 10px 25px 0px;
+                text-align: center;
+                
+                .left{
+                    svg{
+                        font-size: 13px;
+                    }
+                    pre{
+                        font-size: 10px;
+                        margin-top: 0;
+                    }
+                }
+                .center{
+                    font-size: .9rem;
+                }
+                .right{
+                    font-size: 14px;
+                }
+            }
+        }
+        .transaction:last-child{
+            margin-bottom: 25px;
+        }
+    }
+    
+}
