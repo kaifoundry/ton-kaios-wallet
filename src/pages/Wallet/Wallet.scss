@@ -22,13 +22,13 @@
                 margin-top: 0.5rem;
             }
 
-            span {
-                word-wrap: break-word;
+            .address {
+                word-break: break-all;
                 font-size: 0.9rem;
-                width: 51%;
-                display: block;
                 margin: auto;
                 margin-top: 1.5rem;
+                margin-left: 10px;
+                margin-right: 10px;
             }
         }
 
@@ -76,7 +76,7 @@
         justify-content: center;
         // gap: 30px !important;
 
-        span {
+        span{
             font-size: .8rem;
             text-align: center;
         }

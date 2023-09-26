@@ -71,6 +71,13 @@
                 }
                 .right{
                     font-size: 14px;
+                    button{
+                        background: transparent;
+                        border: unset;
+                        color: #fff;
+                        padding: 5px;
+                        border-radius: 5px;
+                    }
                 }
             }
         }

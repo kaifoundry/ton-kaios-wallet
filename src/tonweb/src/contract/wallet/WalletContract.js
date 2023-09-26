@@ -195,8 +195,7 @@ class WalletContract extends Contract {
         }
         signingMessage.bits.writeUint8(sendMode);
         signingMessage.refs.push(Contract.createOutMsg(address, amount, payload, stateInit));
-
-        return this.createExternalMessage(signingMessage, secretKey, seqno, dummySignature);
+        return await this.createExternalMessage(signingMessage, secretKey, seqno, dummySignature);
     }
 
     /**

@@ -1,6 +1,5 @@
 import axios from "axios";
 import CryptoJS from "crypto-js";
-var userAgent = navigator.userAgent;
 const secretKey = "ton-wallet-create-hash-of-password"; //this secret key use encrytion for password.
 
 
@@ -20,7 +19,7 @@ export const passwordHash = (password) => {
 
 // Handle Encryption
 export const encryptData = (password, data) => {
-  let secretKey = CryptoJS.SHA256(passwordHash(passwordHash(password) + passwordHash(userAgent)));
+  let secretKey = CryptoJS.SHA256(passwordHash(passwordHash(password)));
   let encrypted = CryptoJS.AES.encrypt(
     JSON.stringify(data),
     secretKey.toString()
@@ -30,7 +29,7 @@ export const encryptData = (password, data) => {
 
 // Handle Decryption
 export const decryptData = (password, data) => {
-  let secretKey = CryptoJS.SHA256(passwordHash(passwordHash(password) + passwordHash(userAgent)));
+  let secretKey = CryptoJS.SHA256(passwordHash(passwordHash(password)));
   let bytes = CryptoJS.AES.decrypt(data, secretKey.toString());
   let decrypted = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
   return decrypted;

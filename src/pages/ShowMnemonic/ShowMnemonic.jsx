@@ -71,13 +71,13 @@ const ShowMnemonic = () => {
             {!showWarring && <div>
                 <p>Write down words and keep them secret. Together with your passphrase they allow access to your wallet.</p>
 
-                <div className="mnemonic">
-                    {mnemonic.map((element, index) => {
-                        return (
-                            <div key={index} className="mnemonic-word"><p>{index + 1 + ".  " + element}</p></div>
-                        )
-                    })}
-                </div>
+            <div className="mnemonic">
+                {mnemonic.map((element, index) => {
+                    return (
+                        <div key={index} className="mnemonic-word"><p>{index + 1 + ".  " + element}</p></div>
+                    )
+                })}
+            </div>
 
                 <div className="navigation">
                     <button className='items' tabIndex={0} onClick={() => setShowWarring(!showWarring)}><FaArrowLeft /></button>

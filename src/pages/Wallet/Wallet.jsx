@@ -63,7 +63,7 @@ const Wallet = () => {
 
     useEffect(() => {
         fetchWalletBalance();
-    })
+    }, [])
 
     const fetchWalletBalance = async () => {
         let balance = await fetchBalance(address);
@@ -77,7 +77,7 @@ const Wallet = () => {
                     <IoMdSettings />
                 </button>
                 <div style={{marginTop: "0.5rem"}}>
-                    <span>{address}</span>
+                    <div className='address'>{address}</div>
                     <div><pre>{balance.toFixed(5)} TON</pre></div>
 
                 </div>

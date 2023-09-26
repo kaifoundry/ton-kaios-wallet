@@ -8,8 +8,16 @@ import CheckPassword from "./pages/CheckPassword/CheckPassword";
 import ShowMnemonic from "./pages/ShowMnemonic/ShowMnemonic";
 import VerifyMnemonic from "./pages/VerifyMnemonic/VerifyMnemonic";
 import Wallet from "./pages/Wallet/Wallet";
+import Receive from "./pages/Receive/Receive";
+import TransactionDetails from "./pages/TransactionDetails/TransactionDetails";
+import ExportKeys from "./pages/ExportKeys/ExportKeys";
 import Transactions from "./pages/Transactions/Transactions";
 import Send from "./pages/Send/Send";
+import Setting from "./pages/Setting/Setting";
+import SwitchAccount from "./pages/SwitchAccount/SwitchAccount";
+import QRShare from "./pages/QRShare/QRShare";
+import TonConnect from "./pages/TonConnect/TonConnect";
+import ScanQR from "./pages/ScanQR/ScanQR";
 
 function App() {
   return (
@@ -26,6 +34,15 @@ function App() {
         <Route exact path="/wallet/*" element={<Wallet />} />
         <Route exact path="/transactions/*" element={<Transactions />} />
         <Route exact path="/send/*" element={<Send />} />
+        <Route exact path="/setting/*" element={<Setting />} />
+
+        <Route exact path="/receive/*" element={<Receive />} />
+        <Route exact path="/transaction-details/*" element={<TransactionDetails />} />
+        <Route exact path="/export-keys/*" element={<ExportKeys />} />
+        <Route exact path="/switch-account/*" element={<SwitchAccount />} />
+        <Route exact path="/qrcode/:address" element={<QRShare />} />
+        <Route exact path="/ton-connect" element={<TonConnect />} />
+        <Route exact path="/scan-qr" element={<ScanQR />} />
       </Routes>
     </div>
   );

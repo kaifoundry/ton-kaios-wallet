@@ -1,0 +1,47 @@
+.setting-screen {
+  background-color: #010006db;
+    min-height: calc(100vh - 2rem);
+    padding: 1.5rem 0.9rem;
+    overflow: hidden;
+    padding-top: .5rem;
+    color: #fff;
+
+  .content {
+
+    .heading {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      button {
+        border: unset;
+        background-color: unset;
+        color: #fff;
+        outline: unset;
+        border-radius: 10px;
+        padding: 0.5rem;
+        font-weight: 700;
+      }
+    }
+
+    .btn {
+      margin-top: 1rem;
+      button {
+        width: 100%;
+        text-align: left;
+        padding: 0.6rem 0.9rem;
+        border-radius: 10px;
+        margin: 0.6rem 0;
+        display: block;
+        outline: unset;
+        font-size: 0.8rem;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.172);
+        color: #fff;
+      }
+    }
+  }
+  .items:focus {
+    box-shadow: 1px 1px 12px 2px #fff !important;
+  }
+}

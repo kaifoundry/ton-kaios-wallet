@@ -3,9 +3,10 @@ import "./ExternalWallet.scss";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { importWalletFromMnemonic } from '../../TonWalletLogic/TonWalletLogic';
-import { encryptData, saveData } from '../../commanFunctions/commanFunctions';
+import { decryptData, encryptData, saveData } from '../../commanFunctions/commanFunctions';
 import { useDispatch, useSelector } from 'react-redux';
 import { saveAddress } from '../../Redux/action';
+import API from '../../APIs/API';
 
 
 const ExternalWallet = () => {
@@ -74,11 +75,25 @@ const ExternalWallet = () => {
         let walletResponse = await importWalletFromMnemonic(mnemonic);
         dispatch(saveAddress(walletResponse[1]));
         saveData("t-address", walletResponse[1]);
-        let encrypt = encryptData(password, walletResponse[0]);
+        handleSaveImportWalletInDB(walletResponse[1]);
+        console.log(walletResponse[0])
+        let secretKey = Array.from(walletResponse[0].secretKey);
+        let publicKey = Array.from(walletResponse[0].publicKey);
+        let data = { secretKey, publicKey }
+        let encrypt = encryptData(password, data);
         let encryptMnemonic = encryptData(password, mnemonic);
         saveData("t-ek", encrypt);
         saveData("t-em", encryptMnemonic);
         navigate("/wallet");
+    }
+
+    // Handle save wallet in DataBase
+    const handleSaveImportWalletInDB = async (address) => {
+        try {
+            const response = await API.post(`/api/v1/wallets/new-wallet`, { wallet_address: address, wallet_type: "import" });
+        } catch (error) {
+            alert(error);
+        }
     }
 
     return (

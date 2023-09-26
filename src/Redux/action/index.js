@@ -10,3 +10,6 @@ export const savePassword = (password) => {
 export const savePrivateKey = (privateKey) => {
   return { type: "SAVE_PRIVATE_KEY", payload: privateKey };
 };
+export const saveTransactionDetails = (details) => {
+  return { type: "SAVE_TRANSACTION_DETAILS", payload: details };
+};

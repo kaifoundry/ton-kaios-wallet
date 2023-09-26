@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { importWalletFromMnemonic } from '../../TonWalletLogic/TonWalletLogic';
 import { saveAddress, savePassword } from '../../Redux/action';
 import { encryptData, saveData } from '../../commanFunctions/commanFunctions';
+import API from '../../APIs/API';
 
 const VerifyMnemonic = () => {
     const navigate = useNavigate();
@@ -91,11 +92,24 @@ const VerifyMnemonic = () => {
         let walletResponse = await importWalletFromMnemonic(reduxMnemonic.join(" "));
         dispatch(saveAddress(walletResponse[1]));
         saveData("t-address", walletResponse[1]);
-        let encrypt = encryptData(password, walletResponse[0]);
+        handleSaveCreateWalletInDB(walletResponse[1]);
+        let secretKey = Array.from(walletResponse[0].secretKey);
+        let publicKey = Array.from(walletResponse[0].publicKey);
+        let data = {secretKey,publicKey}
+        let encrypt = encryptData(password, data);
         let encryptMnemonic = encryptData(password, reduxMnemonic.join(" "));
         saveData("t-ek", encrypt);
         saveData("t-em", encryptMnemonic);
         navigate("/wallet");
+    }
+
+    // Handle save wallet in DataBase
+    const handleSaveCreateWalletInDB = async(address)=>{
+        try {
+            const response = await API.post(`/api/v1/wallets/new-wallet`,{wallet_address: address,wallet_type: "create"});
+        } catch (error) {
+            alert(error);
+        }
     }
 
     return (
